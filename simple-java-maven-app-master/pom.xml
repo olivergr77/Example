@@ -7,10 +7,12 @@
   <version>5.0.0-${BUILD_NUMBER}</version>
   <name>my-maven</name>
   <url>http://maven.apache.org</url>
-	
-<properties>
-  <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-</properties>
+  
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>1.6</maven.compiler.source>
+    <maven.compiler.target>1.6</maven.compiler.target>
+  </properties>
 
   <dependencies>
     <dependency>
@@ -22,39 +24,41 @@
   </dependencies>
   
   <build>
-	<plugins>
-		<plugin>
-			<groupId>org.apache.maven.plugins</groupId>
-			<artifactId>maven-javadoc-plugin</artifactId>
-			<executions>
-				<execution>
-					<id>attach-javadocs</id>
-					<goals>
-						<goal>jar</goal>
-					</goals>
-				</execution>
-			</executions>
-		</plugin>
-	</plugins>
-	</build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.8.0</version>
+        <configuration>
+          <source>${maven.compiler.source}</source>
+          <target>${maven.compiler.target}</target>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>attach-javadocs</id>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
   
-<distributionManagement>
+  <distributionManagement>
     <repository>
-        <id>sym</id>
-        <name>release softx</name>
-        <url>http://52.66.212.86:8081/repository/rajesh/</url>
+      <id>sym</id>
+      <name>release softx</name>
+      <url>http://52.66.212.86:8081/repository/rajesh/</url>
     </repository>
     <snapshotRepository>
-        <id>sym</id>
-        <name>snapshot softx</name>
-        <url>http://52.66.212.86:8081/repository/rajesh/</url>
+      <id>sym</id>
+      <name>snapshot softx</name>
+      <url>http://52.66.212.86:8081/repository/rajesh/</url>
     </snapshotRepository>
-</distributionManagement>
-
-
-
-
-
-
-
+  </distributionManagement>
 </project>
